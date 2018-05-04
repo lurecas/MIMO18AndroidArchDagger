@@ -56,6 +56,12 @@ class CharacterListAdapter(
                 itemListener.onItemClicked(charId)
             }
 
+            holder.textView.setOnClickListener {
+                val selectedPosition = holder.adapterPosition
+                val charId = getCharacterId(selectedPosition)
+                itemListener.onItemClicked(charId)
+            }
+
         }
 
     }

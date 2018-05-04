@@ -13,7 +13,8 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "0.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "es.upsa.mimo.mimo18_androidarch.AppTestRunner"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -26,11 +27,20 @@ android {
 dependencies {
 
     def versions = [
-            supportLib: '27.1.0',
+            supportLib: '27.1.1',
             picasso   : '2.71828',
             retrofit  : '2.4.0',
 
             junit     : '4.12',
+    ]
+
+    def testVersions = [
+            junitVersion      : '4.12',
+            dexmakerVersion   : '1.2',
+            mockitoVersion    : '1.10.19',
+            supportTestVesion : '1.0.2',
+            robolectricVersion: '3.1.1',
+            espressoVersion   : '3.0.1'
     ]
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -52,8 +62,23 @@ dependencies {
 
 
 
+    androidTestCompile "junit:junit:$testVersions.junitVersion"
+    androidTestCompile "org.mockito:mockito-core:$testVersions.mockitoVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker:$testVersions.dexmakerVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:$testVersions.dexmakerVersion"
+    androidTestCompile "com.android.support:support-annotations:$testVersions.androidSupportVersion"
+    androidTestCompile "com.android.support.test:runner:$testVersions.supportTestVesion"
+    androidTestCompile "com.android.support.test:rules:$testVersions.supportTestVesion"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$testVersions.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$testVersions.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$testVersions.espressoVersion"
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    androidTestCompile 'com.google.dagger:dagger:2.15'
+    kaptAndroidTest 'com.google.dagger:dagger-compiler:2.15'
+
+
+
+
+//    testImplementation 'junit:junit:4.12'
 }

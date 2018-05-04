@@ -13,8 +13,6 @@ import es.upsa.mimo.mimo18_androidarch.list.di.CharacterDetailComponent
 @Component(
         dependencies = [ApplicationComponent::class],
         modules = [
-            ApiModule::class,
-            NetworkModule::class,
             ImageModule::class,
             DataModule::class]
 )

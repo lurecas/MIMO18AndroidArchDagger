@@ -6,7 +6,7 @@ import es.upsa.mimo.mimo18_androidarch.di.component.DaggerApplicationComponent
 import es.upsa.mimo.mimo18_androidarch.di.module.AndroidModule
 
 
-class MarvelApplication : Application() {
+open class MarvelApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -14,12 +14,15 @@ class MarvelApplication : Application() {
         appComponent = createComponent()
     }
 
-    private fun createComponent(): ApplicationComponent {
+    open fun createComponent(): ApplicationComponent {
         return DaggerApplicationComponent.builder()
                 .androidModule(AndroidModule(this))
                 .build()
     }
 
+    fun getComponent(): ApplicationComponent {
+        return appComponent
+    }
 
     companion object {
         @JvmStatic
