@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MIMO18 - Android arch</string>
+    <string name="character_list_activity_title">Marvel Characters</string>
+    <string name="character_detail_activity_title">Character detail</string>
+
+    <!-- Detail screen -->
+    <string name="character_detail_section_series">Series</string>
+    <string name="character_detail_section_stories">Stories</string>
+    <string name="character_detail_section_comics">Comics</string>
+
+</resources>

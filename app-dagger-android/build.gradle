@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "es.upsa.mimo.mimo18_androidarch.daggerandroid"
+        minSdkVersion 26
+        targetSdkVersion 27
+        versionCode 1
+        versionName "0.1"
+        testInstrumentationRunner "es.upsa.mimo.mimo18_androidarch.AppTestRunner"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def versions = [
+            supportLib: '27.1.1',
+            picasso   : '2.71828',
+            retrofit  : '2.4.0',
+            daggerVersion : '2.15',
+
+            junit     : '4.12',
+    ]
+
+    def testVersions = [
+            junitVersion      : '4.12',
+            dexmakerVersion   : '1.2',
+            mockitoVersion    : '1.10.19',
+            supportTestVesion : '1.0.2',
+            robolectricVersion: '3.1.1',
+            espressoVersion   : '3.0.1'
+    ]
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:$versions.supportLib"
+    implementation "com.android.support:cardview-v7:$versions.supportLib"
+    compile 'io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:1.2.0'
+    implementation "com.android.support:design:$versions.supportLib"
+    implementation "com.squareup.picasso:picasso:$versions.picasso"
+
+
+    kapt "com.google.dagger:dagger-compiler:$versions.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$versions.daggerVersion"
+
+    implementation "com.google.dagger:dagger:$versions.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$versions.daggerVersion"
+
+
+    implementation "com.google.code.gson:gson:2.8.4"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+
+
+    androidTestCompile "junit:junit:$testVersions.junitVersion"
+    androidTestCompile "org.mockito:mockito-core:$testVersions.mockitoVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker:$testVersions.dexmakerVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:$testVersions.dexmakerVersion"
+    androidTestCompile "com.android.support:support-annotations:$testVersions.androidSupportVersion"
+    androidTestCompile "com.android.support.test:runner:$testVersions.supportTestVesion"
+    androidTestCompile "com.android.support.test:rules:$testVersions.supportTestVesion"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$testVersions.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$testVersions.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$testVersions.espressoVersion"
+
+
+    androidTestCompile 'com.google.dagger:dagger:2.15'
+    kaptAndroidTest 'com.google.dagger:dagger-compiler:2.15'
+
+
+
+
+//    testImplementation 'junit:junit:4.12'
+}

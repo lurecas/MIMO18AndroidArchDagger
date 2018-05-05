@@ -1,1 +1,1 @@
-include ':app',':app-dagger',':app-dagger-v2'
+include ':app',':app-dagger',':app-dagger-v2',':app-dagger-android'
