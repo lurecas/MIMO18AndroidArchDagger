@@ -13,8 +13,8 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "0.1"
-        testInstrumentationRunner "es.upsa.mimo.mimo18_androidarch.AppTestRunner"
-//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "es.upsa.mimo.mimo18_androidarch.AppTestRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
